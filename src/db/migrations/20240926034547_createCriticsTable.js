@@ -9,7 +9,7 @@ exports.up = function(knex) {
     table.string("surname");
     table.string("organization_name");
     table.timestamps(true, true);
-  })
+  });
 };
 
 /**
