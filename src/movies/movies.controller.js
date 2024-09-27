@@ -21,10 +21,23 @@ const movieExists = async (req, res, next) => {
     });
 };
 
+const checkForQueryParam = async (req, res, next) => {
+  const { is_showing } = req.query;
+  const movies = await moviesService.list(is_showing);
+  if (movies) {
+    res.locals.movies = movies;
+    next();
+  }
+  next({
+    status: 404,
+    message: "Movies not found."
+  })
+}
 
 // Route handlers
 const list = (req, res) => {
-
+  const { movies: data } = res.locals;
+  res.json({ data });
 }
 
 const read = (req, res) => {
@@ -34,4 +47,5 @@ const read = (req, res) => {
 
 module.exports = {
     read: [asyncErrorBoundary(movieExists), read],
+  list: [asyncErrorBoundary(checkForQueryParam), list]
 }
