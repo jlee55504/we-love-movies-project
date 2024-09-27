@@ -11,14 +11,22 @@ const addCritic = mapProperties({
 });
 
 const list =(isShowing = null) => {
-
+ 
+  if (!isShowing) {
+    return knex("movies as m").select("*");
+  } else if (isShowing) {
+    return knex("movies as m")
+      .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
+    .select(knex.raw("distinct m.movie_id,m.* , mt.is_showing"))
+    .where({"mt.is_showing": 1})
+  }
 }
 
 const read = (movie_id, routePath = null) => {
     if (!routePath) {
         return knex("movies as m")
             .select("*")
-            .where({"m.movie_id": movie_id })
+            .where({movie_id})
             .first();
     }
     if (routePath === "theaters") {
