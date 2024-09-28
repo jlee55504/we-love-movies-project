@@ -15,29 +15,31 @@ const read = (review_id) => {
     .select("*")
     .where({ review_id })
     .first();
-}
+};
 
 const update = updatedReview => {
-  return knex("reviews as r")
-     .select("r.*")
-     .where({ "r.review_id": updatedReview.review_id })
-     .update(updatedReview, "*")
+    return knex("reviews as r")
+       .select("r.*")
+       .where({ "r.review_id": updatedReview.review_id })
+       .update(updatedReview, "*")
 .then(() => {
-    return knex("reviews as r") .join("critics as c", "c.critic_id", "r.critic_id")
-    .select("c.*")
-    .where ({ "r.review_id": updatedReview.review_id })
-    .first();
-  })
-.then(addCritic);
-}
+      return knex("reviews as r") .join("critics as c", "c.critic_id", "r.critic_id")
+      .select("c.*")
+      .where ({ "r.review_id": updatedReview.review_id })
+      .first();
+    })
+  .then(addCritic);
+};
 
-
-const destroy = reviewId => {
-  
-}
+const destroy = review_id => {
+  return knex("reviews")
+    .select("*")
+    .where({ review_id })
+    .del();
+};
 
 module.exports = {
   delete: destroy,
   update,
   read
-};
+}
