@@ -10,9 +10,7 @@ const VALID_PROPERTIES = [
     "critic_id",
     "movie_id",
     "critic"
-]
-
-
+];
 
 // Middleware functions
 const reviewExists = async (req, res, next) => {
@@ -21,12 +19,12 @@ const reviewExists = async (req, res, next) => {
     if (review) {
         res.locals.review = review;
         return next();
-    }
+    };
     next({
         status: 404,
         message: `/cannot be found /reviews/${req.params.reviewId}`,
-    })
-}
+    });
+};
 
 const hasOnlyValidProperties = async (req, res, next) => {
     const { data = {} } = req.body;
@@ -40,22 +38,26 @@ const hasOnlyValidProperties = async (req, res, next) => {
     next();
 };
 
+
 // Route handlers
 const update = async (req, res) => {
-    const updatedReview = { 
-      ...res.locals.review,
-          ...req.body.data,
-          review_id: res.locals.review.review_id,
-      };
-      const data = await reviewsService.update(updatedReview);
-    const answer = {...updatedReview, ...data};
-      res.json({  data: answer });
-  }
-  
-const destroy = (req, res) => {
-    
-}
+  const updatedReview = { 
+    ...res.locals.review,
+        ...req.body.data,
+        review_id: res.locals.review.review_id,
+    };
+    const data = await reviewsService.update(updatedReview);
+  const answer = {...updatedReview, ...data};
+    res.json({  data: answer });
+};
+
+const destroy = async (req, res) => {
+    const { review } = res.locals;
+    await reviewsService.delete(review.review_id);
+    res.sendStatus(204);
+};
 
 module.exports = {
-    update: [asyncErrorBoundary(reviewExists), hasOnlyValidProperties,  asyncErrorBoundary(update)]
+    update: [asyncErrorBoundary(reviewExists), hasOnlyValidProperties,  asyncErrorBoundary(update)],
+  delete: [asyncErrorBoundary(reviewExists), asyncErrorBoundary(destroy)],
 };
