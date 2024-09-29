@@ -11,7 +11,6 @@ const addCritic = mapProperties({
 });
 
 const list =(isShowing = null) => {
- 
   if (!isShowing) {
     return knex("movies as m").select("*");
   } else if (isShowing) {
@@ -19,8 +18,8 @@ const list =(isShowing = null) => {
       .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
     .select(knex.raw("distinct m.movie_id,m.* , mt.is_showing"))
     .where({"mt.is_showing": 1})
-  }
-}
+  };
+};
 
 const read = (movie_id, routePath = null) => {
     if (!routePath) {
@@ -28,31 +27,30 @@ const read = (movie_id, routePath = null) => {
             .select("*")
             .where({movie_id})
             .first();
-    }
-    if (routePath === "theaters") {
+    } else if (routePath === "theaters") {
         return knex("movies as m")
-            .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
-            .join("theaters as t", "t.theater_id", "mt.theater_id")
-            .select("t.*", "mt.is_showing", "mt.movie_id")
-      .groupBy("t.theater_id")
-            .orderBy("t.theater_id");
+          .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
+          .join("theaters as t", "t.theater_id", "mt.theater_id")
+          .select("t.*", "mt.is_showing", "mt.movie_id")
+          .groupBy("t.theater_id")
+          .orderBy("t.theater_id");
     } else if (routePath  === "reviews") {
         return knex("reviews as r")
-            .join("movies as m", "m.movie_id", "r.movie_id")
-            .join("critics as c", "c.critic_id", "r.critic_id")
-             .select(knex.raw("distinct m.movie_id, r.*,c.critic_id, c.*" ))//
-          .groupBy("c.critic_id")
-      .then((response) => {
-        const answer = []
-        for (const critic of response) {
-          answer.push(addCritic(critic))
-        };
-          return answer;
-      });
-    };
+          .join("movies as m", "m.movie_id", "r.movie_id")
+          .join("critics as c", "c.critic_id", "r.critic_id")
+           .select(knex.raw("distinct m.movie_id, r.*,c.critic_id, c.*" ))//
+           .groupBy("c.critic_id")
+           .then((response) => {
+             const answer = [];
+             for (const critic of response) {
+               answer.push(addCritic(critic));
+             };
+             return answer;
+           });
+      };
 };
 
 module.exports = {
     read,
     list,
-}
+};
