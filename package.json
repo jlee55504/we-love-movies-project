@@ -11,6 +11,7 @@
     "knex": "knex",
     "migrate": "knex migrate:latest",
     "reset": "npm run rollback && npm run migrate && npm run seed",
+    "dev": "nodemon src/server.js",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
     "start": "node src/server.js",

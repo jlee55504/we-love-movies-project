@@ -36,10 +36,9 @@ const read = (movie_id, routePath = null) => {
           .orderBy("t.theater_id");
     } else if (routePath  === "reviews") {
         return knex("reviews as r")
-          .join("movies as m", "m.movie_id", "r.movie_id")
           .join("critics as c", "c.critic_id", "r.critic_id")
-           .select(knex.raw("distinct m.movie_id, r.*,c.critic_id, c.*" ))//
-           .groupBy("c.critic_id")
+           .select("c.*", "r.*")
+           .where({ "r.movie_id": movie_id })
            .then((response) => {
              const answer = [];
              for (const critic of response) {
