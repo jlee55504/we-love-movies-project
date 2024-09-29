@@ -1,6 +1,6 @@
 const moviesService = require("./movies.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
-const hasProperties = require("../errors/hasProperties");
+
 
 // Middleware functions
 const movieExists = async (req, res, next) => {
@@ -27,25 +27,25 @@ const checkForQueryParam = async (req, res, next) => {
   if (movies) {
     res.locals.movies = movies;
     next();
-  }
+  };
   next({
     status: 404,
     message: "Movies not found."
-  })
-}
+  });
+};
 
 // Route handlers
 const list = (req, res) => {
   const { movies: data } = res.locals;
   res.json({ data });
-}
+};
 
 const read = (req, res) => {
     const { movie: data } = res.locals;
     res.json({ data });
-}
+};
 
 module.exports = {
-    read: [asyncErrorBoundary(movieExists), read],
+  read: [asyncErrorBoundary(movieExists), read],
   list: [asyncErrorBoundary(checkForQueryParam), list]
-}
+};
