@@ -1,6 +1,5 @@
 const reviewsService = require("./reviews.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
-const hasProperties = require("../errors/hasProperties");
 const VALID_PROPERTIES = [
     "review_id",
     "content",
