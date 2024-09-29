@@ -17,17 +17,17 @@ const reduceMovies = reduceProperties("theater_id", {
 
 // Route handlers
 const list = async (req, res) => {
-  const movies = await theatersService.list("movies");
+    const movies = await theatersService.list("movies");
     const theaters = await theatersService.list("theaters");
-  const reducedMovies = reduceMovies(movies);
-  for (let i = 0; i < reducedMovies.length; i++) {
-    let movieArray = Object.values(reducedMovies[i])[0];
-    let theater_id = Object.values(reducedMovies[i])[0][i].theater_id;
-    if (theaters[i].theater_id === theater_id) {
-      theaters[i].movies = movieArray;
+    const reducedMovies = reduceMovies(movies);
+    for (let i = 0; i < reducedMovies.length; i++) {
+      let movieArray = Object.values(reducedMovies[i])[0];
+      let theater_id = Object.values(reducedMovies[i])[0][i].theater_id;
+      if (theaters[i].theater_id === theater_id) {
+        theaters[i].movies = movieArray;
+      };
     };
-  };
-  res.json({ data: theaters });
+    res.json({ data: theaters });
 };
 
 module.exports = {
