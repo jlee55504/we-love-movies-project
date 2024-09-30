@@ -28,12 +28,10 @@ const read = (movie_id, routePath = null) => {
             .where({movie_id})
             .first();
     } else if (routePath === "theaters") {
-        return knex("movies as m")
-          .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
-          .join("theaters as t", "t.theater_id", "mt.theater_id")
+        return knex("theaters as t")
+          .join("movies_theaters as mt", "mt.theater_id", "t.theater_id")
           .select("t.*", "mt.is_showing", "mt.movie_id")
-          .groupBy("t.theater_id")
-          .orderBy("t.theater_id");
+          .where({ "mt.movie_id": movie_id })
     } else if (routePath  === "reviews") {
         return knex("reviews as r")
           .join("critics as c", "c.critic_id", "r.critic_id")

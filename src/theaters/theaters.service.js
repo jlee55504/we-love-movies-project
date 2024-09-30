@@ -1,3 +1,4 @@
+const { orderBy } = require("lodash");
 const knex = require("../db/connection");
 
 const list = data => {
@@ -10,7 +11,8 @@ const list = data => {
       return knex("movies as m")
         .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
         .join("theaters as t", "t.theater_id", "mt.theater_id")
-        .select(knex.raw("distinct t.theater_id, t.*"));
+        .select(knex.raw("distinct t.theater_id, t.*"))
+        .orderBy("t.theater_id");
   };
 };
 

@@ -15,6 +15,7 @@ const reduceMovies = reduceProperties("theater_id", {
   theater_id: ["movies", null, "theater_id"],
 });
 
+
 // Route handlers
 const list = async (req, res) => {
     const movies = await theatersService.list("movies");
@@ -23,11 +24,14 @@ const list = async (req, res) => {
     for (let i = 0; i < reducedMovies.length; i++) {
       let movieArray = Object.values(reducedMovies[i])[0];
       let theater_id = Object.values(reducedMovies[i])[0][i].theater_id;
+      console.log(theater_id)
+      console.log("theater_id: ", theaters[i].theater_id)
       if (theaters[i].theater_id === theater_id) {
         theaters[i].movies = movieArray;
       };
     };
-    res.json({ data: theaters });
+  const data = theaters;
+    res.json({ data });
 };
 
 module.exports = {
