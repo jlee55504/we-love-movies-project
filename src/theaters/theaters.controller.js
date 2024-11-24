@@ -24,8 +24,6 @@ const list = async (req, res) => {
     for (let i = 0; i < reducedMovies.length; i++) {
       let movieArray = Object.values(reducedMovies[i])[0];
       let theater_id = Object.values(reducedMovies[i])[0][i].theater_id;
-      console.log(theater_id)
-      console.log("theater_id: ", theaters[i].theater_id)
       if (theaters[i].theater_id === theater_id) {
         theaters[i].movies = movieArray;
       };
