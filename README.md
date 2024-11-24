@@ -1,5 +1,5 @@
 # WeLoveMovies Project
-Completed Chegg Skills "Flashcard-o-matic" "Qualified" project.
+Completed Chegg Skills "We-Love-Movies" "Qualified" project.
 
 ## Overview:
 This project builds out specific routes so that users can gain access to data about movies, theaters, and reviews.
