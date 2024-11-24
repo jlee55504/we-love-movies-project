@@ -7,7 +7,7 @@ This project builds out specific routes so that users can gain access to data ab
 ## Buit with:
   * Express
   * Lodash
-  * nodemon
+  * Nodemon
   * CORS
   * Knex
   * Dotenv
