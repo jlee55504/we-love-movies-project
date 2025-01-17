@@ -1,92 +1,68 @@
 # WeLoveMovies Project
-Completed Chegg Skills "We-Love-Movies" "Qualified" project.
+The back-end of a web application that displays information on theaters, movies, and movie reviews.
 
-## Overview:
-This project builds out specific routes so that users can gain access to data about movies, theaters, and reviews.
+## Features
+
+  - **Movie Data Management:** Properly lists all the movie information.
+  - **Reviews Data Management:** Properly lists, updates, and deletes all the reviews information. 
+  - **Theater Data Management:** Properly lists all the information from the theaters.
+  - **REST API Implementation:** Built using a REST architecture.
+  - **Error Handling:** Robust error handling for enhanced reliability.
 
 ## Buit with:
-  * Express
-  * Lodash
-  * Nodemon
-  * CORS
-  * Knex
-  * Dotenv
-  * PG
-  * Morgan
-  * Sqlite3
-  * Supertest used for testing
 
-## src/db/migrations
-Holds the Knex migrations for creating the tables used to store the data in the database.
+  * **Express.js:** Core programming language (Express.js 4.17.1)
+  * **Nodemon:** Automatically restarts the application when file changes in the directory are detected.
+  * **CORS:** Enables cross-domain requests.
+  * **Knex.js:** Builds and executes standard SQL queries.  
+  * **Dotenv:** Loads environment variables from a .env file into process.env.
+  * **PG:** A collection of Node.js modules for interacting with a PostgresSQL database.
+  * **Morgan:** Prints the information of each request to the terminal window. 
+  * **Sqlite3:** Provides a lightweight disk-based database that doesn’t require a separate server process and allows accessing the database using a nonstandard variant of the SQL query language.
+  * **Supertest:** Unit testing framework.
 
+## Getting Started
 
-## src/db/seeds
-Holds the seeds that insert the data into the database.
+### Prerequisites
+ - Node Package Manager (NPM)
 
+ ### Installation:
 
-## src/errors
+  1. Clone the repository:
+     ```
+     git clone https://github.com/jlee55504/we-love-movies-project.git
+     ```
+  2. Navigate to the project directory:
+     ```
+     cd we-love-movies-project
+     ```
+  3. Build the project:
+     ```
+     npm install
+     ```
+  4. Run the application:
+     ```
+     npm run dev
+     ```
 
-### asyncBoundary.js
-Handles any async error thrown by an async function.
+## Usage
 
-### errorHandler.js
-Sends any errors back to users along with the status code.
+This application is the back-end of the "We Love Movies" project and needs to be used in conjunction with the front-end of the ["We Love Movies" project] (https://starter-movie-front-end-m3rt.onrender.com).
 
-### methodNotAllowed.js
-Throws an error if an improper http method is used.
+## Code Structure
 
+  - **src/db/migrations:** Holds the Knex migrations for creating the tables used to store the data in the database
+  - **src/db/seeds:** Holds the seeds that insert the data into the database.
+  - **src/errors:** Handles any errors in the application.
+  - **src/movies:** Handles the HTTP requests, the route layout, and the data manipulation for the "movies" pathways.
+  - **src/reviews:** Handles the HTTP requests, the route layout, and the data manipulation for the "reviews" pathways.
+  - **src/theaters:** Handles the HTTP requests, the route layout, and the data manipulation for the "theaters" pathways.
+  - **knexfile.js:** Contains database configurations for different environments.
+  - **src/utils/map-properties.js:** Accepts an object and returns a new object with the source properties mapped to the target properties.
+  - **src/utils/reduce-properties.js:** Reduces an array of data by mapping properties onto array properties as objects.
+  - **src/app.js:** Attaches the router files and error handlers to the proper URL paths.
+  - **src/server.js:** Combines the Knex.js and app.js file to the server.
 
-## src/movies
-
-### movies.controller.js
-Contains the middleware functions and route handlers for the '/movies' 'path'. It lists the all the movies in the database depending on whether the movie is showing or not and displays specific movies, all the theaters where a specific movie is playing, and all the reviews for a specific movie.
-
-### movies.router.js
-Attaches all the route handlers to the '/movies' 'pathways'.
-
-### movies.service.js
-Contains all the functions to manipulate the database.
-
-
-## src/reviews
-
-### reviews.controller.js
-Contains the middleware functions and route handlers for the '/reviews' 'path'. It can update and delete reviews held in the database. Updating a review will also return the critic information related to the specific review.
-
-### reviews.router.js
-Attaches all the route handlers to the '/reviews' 'pathways'.
-
-### reviews.service.js
-Contains all the functions to manipulate the database.
-
-
-## src/theaters
-
-### theaters.controller.js
-Contains the route handlers for the '/theaters' 'path'. It returns all the theaters with all the movies realated to the theater.
-
-### theaters.router.js
-Attaches the 'list' route handler to the '/theaters' 'pathway'.
-
-### theaters.service.js
-Contains the 'list' function which retrieves the proper data from the database.
-
-
-## src/utils
-
-### map-properties.js
-Accepts an object and returns a new object with the source properties mapped to the target properties.
-
-### reduce-properties.js
-Reduces an array of data by mapping properties onto array properties as objects.
-
-
-## src/app.js
-Attaches the routers to the proper URL paths and the 'notFound' and 'errorHandler' 'functions'.
-
-## src/server.js
-Combines the Knex.js and app.js file to the server.
-
-
-## knexfile.js
-Contains database configurations for different environments.
+## Acknowledgments
+  - This project was built for the Chegg Skill's software engineering program
+  - This project gave me real knowledge on back-end development and database manipulation
