@@ -47,7 +47,7 @@ The back-end of a web application that displays information on theaters, movies,
 
 ## Usage
 
-This application is the back-end of the "We Love Movies" project and needs to be used in conjunction with the front-end of the ["We Love Movies" project] (https://starter-movie-front-end-m3rt.onrender.com).
+This application is the back-end of the "We Love Movies" project and needs to be used in conjunction with the front-end of the "We Love Movies" project (https://starter-movie-front-end-m3rt.onrender.com).
 
 ## Code Structure
 
