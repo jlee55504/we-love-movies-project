@@ -40,7 +40,17 @@ The back-end of a web application that displays information on theaters, movies,
      ```
      npm install
      ```
-  4. Run the application:
+  4. Setup a PostgresSQL database
+  5. Add the database address to the "DATABASE_URL" variable in the "knexfile.js" file.
+  6. Run the migrations:
+     ```
+     npx knex migrate:latest
+     ```
+  7. run the seed files:
+     ```
+     npx knex seed:run
+     ```
+  8. Run the application:
      ```
      npm run dev
      ```
