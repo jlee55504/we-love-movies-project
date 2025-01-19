@@ -51,17 +51,17 @@ This application is the back-end of the "We Love Movies" project and needs to be
 
 ## Code Structure
 
-  - **src/db/migrations:** Holds the Knex migrations for creating the tables used to store the data in the database
-  - **src/db/seeds:** Holds the seeds that insert the data into the database.
-  - **src/errors:** Handles any errors in the application.
-  - **src/movies:** Handles the HTTP requests, the route layout, and the data manipulation for the "movies" pathways.
-  - **src/reviews:** Handles the HTTP requests, the route layout, and the data manipulation for the "reviews" pathways.
-  - **src/theaters:** Handles the HTTP requests, the route layout, and the data manipulation for the "theaters" pathways.
-  - **knexfile.js:** Contains database configurations for different environments.
-  - **src/utils/map-properties.js:** Accepts an object and returns a new object with the source properties mapped to the target properties.
-  - **src/utils/reduce-properties.js:** Reduces an array of data by mapping properties onto array properties as objects.
-  - **src/app.js:** Attaches the router files and error handlers to the proper URL paths.
-  - **src/server.js:** Combines the Knex.js and app.js file to the server.
+  - ``src/db/migrations:`` Holds the Knex migrations for creating the tables used to store the data in the database
+  - ``src/db/seeds:`` Holds the seeds that insert the data into the database.
+  - ``src/errors:`` Handles any errors in the application.
+  - ``src/movies:`` Handles the HTTP requests, the route layout, and the data manipulation for the "movies" pathways.
+  - ``src/reviews:`` Handles the HTTP requests, the route layout, and the data manipulation for the "reviews" pathways.
+  - ``src/theaters:`` Handles the HTTP requests, the route layout, and the data manipulation for the "theaters" pathways.
+  - ``knexfile.js:`` Contains database configurations for different environments.
+  - ``src/utils/map-properties.js:`` Accepts an object and returns a new object with the source properties mapped to the target properties.
+  - ``src/utils/reduce-properties.js:`` Reduces an array of data by mapping properties onto array properties as objects.
+  - ``src/app.js:`` Attaches the router files and error handlers to the proper URL paths.
+  - ``src/server.js:`` Combines the Knex.js and app.js file to the server.
 
 ## Acknowledgments
   - This project was built for the Chegg Skill's software engineering program
