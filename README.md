@@ -1,4 +1,4 @@
-# WeLoveMovies Project
+# We Love Movies Project
 The back-end of a web application that displays information on theaters, movies, and movie reviews.
 
 ## Features
