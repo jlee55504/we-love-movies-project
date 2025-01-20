@@ -1,6 +1,6 @@
 # We Love Movies Project
 
-The back-end of a web application that displays information on theaters, movies, and movie reviews.
+The back-end of a web application that retrieves information on theaters, movies, and movie reviews.
 
 ## Features
 
