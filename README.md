@@ -5,20 +5,20 @@ The back-end of a web application that displays information on theaters, movies,
 
   - **Movie Data Management:** Properly lists all the movie information.
   - **Reviews Data Management:** Properly lists, updates, and deletes all the reviews information. 
-  - **Theater Data Management:** Properly lists all the information from the theaters.
+  - **Theater Data Management:** Properly lists all the theater information.
   - **REST API Implementation:** Built using a REST architecture.
   - **Error Handling:** Robust error handling for enhanced reliability.
 
 ## Buit with:
 
   * **Express.js:** Core programming language (Express.js 4.17.1)
-  * **Nodemon:** Automatically restarts the application when file changes in the directory are detected.
+  * **Nodemon:** Automatically restarts the application when changes in the files are detected.
   * **CORS:** Enables cross-domain requests.
   * **Knex.js:** Builds and executes standard SQL queries.  
   * **Dotenv:** Loads environment variables from a .env file into process.env.
-  * **PG:** A collection of Node.js modules for interacting with a PostgresSQL database.
-  * **Morgan:** Prints the information of each request to the terminal window. 
-  * **Sqlite3:** Provides a lightweight disk-based database that doesn’t require a separate server process and allows accessing the database using a nonstandard variant of the SQL query language.
+  * **PG:** A collection of Node.js modules used to interacte with a PostgresSQL database.
+  * **Morgan:** Prints the information of each HTTP request to the terminal window. 
+  * **Sqlite3:** Provides a lightweight disk-based database that doesn’t require a separate server process and allows a nonstandard variant of the SQL query language to access the database.
   * **Supertest:** Unit testing framework.
 
 ## Getting Started
@@ -62,12 +62,12 @@ This application is the back-end of the "We Love Movies" project and needs to be
 ## Code Structure
 
   - ``src/db/migrations:`` Holds the Knex migrations for creating the tables used to store the data in the database
-  - ``src/db/seeds:`` Holds the seeds that insert the data into the database.
+  - ``src/db/seeds:`` Holds the seeds that insert data into the database
   - ``src/errors:`` Handles any errors in the application
   - ``src/movies:`` Handles the HTTP requests, the route layout, and the data manipulation for the "movies" pathways
   - ``src/reviews:`` Handles the HTTP requests, the route layout, and the data manipulation for the "reviews" pathways
   - ``src/theaters:`` Handles the HTTP requests, the route layout, and the data manipulation for the "theaters" pathways
-  - ``knexfile.js:`` Contains database configurations for different environments.
+  - ``knexfile.js:`` Contains database configurations for different environments
   - ``src/utils/map-properties.js:`` Accepts an object and returns a new object with the source properties mapped to the target properties
   - ``src/utils/reduce-properties.js:`` Reduces an array of data by mapping properties onto array properties as objects
   - ``src/app.js:`` Attaches the router files and error handlers to the proper URL paths
