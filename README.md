@@ -9,17 +9,17 @@ The back-end of a web application that displays information on theaters, movies,
   - **REST API Implementation:** Built using a REST architecture.
   - **Error Handling:** Robust error handling for enhanced reliability.
 
-## Buit with:
+## Technologies Used
 
   * **Express.js:** Core programming language (Express.js 4.17.1)
-  * **Nodemon:** Automatically restarts the application when changes in the files are detected.
-  * **CORS:** Enables cross-domain requests.
-  * **Knex.js:** Builds and executes standard SQL queries.  
-  * **Dotenv:** Loads environment variables from a .env file into process.env.
-  * **PG:** A collection of Node.js modules used to interacte with a PostgresSQL database.
-  * **Morgan:** Prints the information of each HTTP request to the terminal window. 
-  * **Sqlite3:** Provides a lightweight disk-based database that doesn’t require a separate server process and allows a nonstandard variant of the SQL query language to access the database.
-  * **Supertest:** Unit testing framework.
+  * **Nodemon:** Automatically restarts the application when changes in the files are detected
+  * **CORS:** Enables cross-domain requests
+  * **Knex.js:** Builds and executes standard SQL queries  
+  * **Dotenv:** Loads environment variables from a .env file into process.env
+  * **PG:** A collection of Node.js modules used to interacte with a PostgresSQL database
+  * **Morgan:** Prints the information of each HTTP request to the terminal window 
+  * **Sqlite3:** Provides a lightweight disk-based database that doesn’t require a separate server process and allows a nonstandard variant of the SQL query language to access the database
+  * **Supertest:** Unit testing framework
 
 ## Getting Started
 
