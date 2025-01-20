@@ -1,4 +1,5 @@
 # We Love Movies Project
+
 The back-end of a web application that displays information on theaters, movies, and movie reviews.
 
 ## Features
@@ -74,5 +75,6 @@ This application is the back-end of the "We Love Movies" project and needs to be
   - ``src/server.js:`` Combines the Knex.js and app.js file to the server
 
 ## Acknowledgments
+
   - This project was built for the Chegg Skill's software engineering program
   - This project gave me real knowledge on back-end development and database manipulation
